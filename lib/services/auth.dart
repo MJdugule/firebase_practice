@@ -24,7 +24,7 @@ class AuthService {
           email: email, password: password);
       User? user = result.user;
       // create document as users sign up
-      await DatabaseService(uid: user!.uid).updateUsers('name', 0, 'male');
+      await DatabaseService().updateUsers(email, password);
       return _customUser(user);
     } catch (e) {
       print(e.toString());
