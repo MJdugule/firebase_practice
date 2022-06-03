@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return StreamProvider.value(
       initialData: null,
       value: AuthService().user,
-      child: MaterialApp(
+      child: const MaterialApp(
         title: 'Firebase Practice',
         home: Wrapper(),
       ),
