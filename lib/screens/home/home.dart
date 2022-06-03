@@ -22,9 +22,9 @@ class HomePage extends StatelessWidget {
           body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Email: $email'),
-          Text('Password: $password'),
-          Text(msg),
+          // Text('Email: $email'),
+          // Text('Password: $password'),
+          // Text(msg),
           const SizedBox(height: 50.0),
           InkWell(
             onTap: (() async {
