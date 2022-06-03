@@ -1,30 +1,48 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_practice/services/auth.dart';
+import 'package:firebase_practice/services/database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   HomePage({
     Key? key,
-    // required this.email,
-    // required this.password,
-    // required this.msg,
+    required this.email,
+    required this.password,
+    required this.msg,
   }) : super(key: key);
-  // final String email;
-  // final String password;
-  // final String msg;
+  final String email;
+  final String password;
+  final String msg;
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   final AuthService _auth = AuthService();
+
+ DatabaseService data = DatabaseService();
+
+ @override
+  void initState() {
+      data.getUserDetails();
+    // TODO: implement initState
+    super.initState();
+  
+  }
 
   @override
   Widget build(BuildContext context) {
+     data.getUserDetails();
     return SafeArea(
       child: Scaffold(
           body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Email: $email'),
-          Text('Password: $password'),
-          Text(msg),
+          Text('Email: ${data.snapshot?['email']}'),
+          Text('Password: ${data.snapshot?['password']}'),
+          Text(widget.msg),
           const SizedBox(height: 50.0),
           InkWell(
             onTap: (() async {

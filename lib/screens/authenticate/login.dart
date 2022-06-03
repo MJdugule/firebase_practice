@@ -8,6 +8,7 @@ class LoginPage extends StatefulWidget {
   LoginPage({Key? key, required this.toggleAuthScreen}) : super(key: key);
   Function toggleAuthScreen;
 
+
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
@@ -75,7 +76,11 @@ class _LoginPageState extends State<LoginPage> {
                   });
                   if (formKey.currentState!.validate()) {
                     dynamic result = await _auth.signInEmailAndPass(
-                        emailCont.text, passCont.text);
+                        emailCont.text, passCont.text).then((value){
+                          setState(() {
+                          email = emailCont.text;
+                          });
+                        });
                     if (result == null) {
                       setState(() => error = 'Error signing in');
                     }
