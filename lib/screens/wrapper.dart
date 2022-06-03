@@ -16,9 +16,7 @@ class Wrapper extends StatelessWidget {
       return Authenticate();
     } else {
       return HomePage(
-        // email: '',
-        // msg: '',
-        // password: '',
+      
       );
     }
   }
