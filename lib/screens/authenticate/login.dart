@@ -112,11 +112,11 @@ class _LoginPageState extends State<LoginPage> {
                   //         msg: 'Signed in with google'),
                   //   ),
                   // );
-                  setState(() {
-                    email = 'userGoogle';
-                    password = 'not used';
-                    msg = 'Signed in with google';
-                  });
+                  // setState(() {
+                  //   email = 'userGoogle';
+                  //   password = 'not used';
+                  //   msg = 'Signed in with google';
+                  // });
                 },
                 child: const Text("Sign in with google"),
               ),

@@ -22,31 +22,36 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final AuthService _auth = AuthService();
 
- DatabaseService data = DatabaseService();
+  DatabaseService data = DatabaseService();
 
- @override
+  @override
   void initState() {
-      data.getUserDetails();
+    data.getUserDetails();
     super.initState();
-  
   }
 
   @override
   Widget build(BuildContext context) {
-     data.getUserDetails();
+    // data.getUserDetails();
     return SafeArea(
       child: Scaffold(
           body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Email: ${data.snapshot?['email']}'),
-          Text('Password: ${data.snapshot?['password']}'),
+          Text(
+            // 'Email: ${data.emails}'
+              'Email: ${data.snapshot?['email']}'
+              ),
+          Text(
+            // 'Password: ${data.passwords}'
+              'Password: ${data.snapshot?['password']}'
+              ),
           Text(widget.msg),
           const SizedBox(height: 50.0),
           InkWell(
             onTap: (() async {
               await _auth.signOut();
-
+    
               // Navigator.pop(context);
             }),
             child: const Text('Back'),
